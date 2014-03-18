@@ -1,0 +1,30 @@
+<div class="container">
+<div class="span7 content1" >
+</p>
+Twitter is an online social networking and microblogging service that enables users to send and read "tweets", which are text messages limited to 140 characters.
+</p>
+</div>
+
+<div class="span4">
+	<div class="well">
+	<h2>Sign in</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+  <% end -%>
+
+  <%= f.submit "Sign in", :class => "btn btn-primary" %>
+<% end %>
+</div>
+
+<%= render "devise/shared/links" %>
+
+</div>
+</div>

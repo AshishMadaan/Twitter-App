@@ -1,0 +1,32 @@
+<%= render "profile" %>
+
+<div class="span6">
+<h2>Tweets</h2>
+
+<%# if @tweets.size > 1 %>
+<%# for tweet in @tweets do %>
+<%# if !tweet.content.nil? %>
+
+	<%#= tweet.content %>
+  <%#= link_to "Destroy", user_tweet_path(current_user.id, tweet), :method => :delete, :data => { confirm: 'Are you sure?' } %> 
+
+
+  <% if @tweets.present? && @tweets.size > 1 %>
+    <% @tweets.each do |tweet| %>
+      <% if !tweet.content.nil? %>
+       <p class="well"> <%= tweet.content %>
+        <%# debugger %>
+        <%= link_to "Destroy", user_tweet_path(current_user, tweet), :method => :delete, :data => { confirm: 'Are you sure?' } %></p> <br/>
+      <% end %>
+    <% end %>
+
+  <% end %>
+
+
+</div>
+
+<div class="span3">
+  <%= users_show_path %>
+
+</div>
+

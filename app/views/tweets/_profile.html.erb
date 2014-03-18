@@ -1,0 +1,34 @@
+  <div class="span3">
+	
+
+ <div style="width:70px; height: 50px; margin-top:50px;">
+
+  <%= image_tag(current_user.image_url.to_s, :class=> "img-circle") %>
+  <%#= if current_user.image == "" 
+  image_tag('default_user.jpg', :width => 70)
+   else
+   image_tag current_user.image_url.to_s
+   end %>
+ </div>
+
+	<span style="margin-left:90px;" >
+
+    <% if current_user.name.present? %>
+      <%= current_user.name %>
+    <% else %>
+      <%= current_user.email%>
+    <% end %>
+
+  
+  </span>
+<%= form_for([current_user, @tweet]) do |f| %>
+  
+  <div class="field">
+    <%#= f.label :content %><br />
+    <%= f.text_area :content, :rows => 4 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+</div>
